@@ -1,0 +1,6 @@
+.fileupload{margin:10px; width:500px; background:#f4f4f4; border:1px solid #ccc;}
+.fileupload h2{padding:10px; text-align:center; border-bottom:1px solid #ccc;}
+.fileupload ul{ padding:10px;}
+.fileupload ul li{ display:inline-block; padding:5px 0; width:100%; margin:0px !important;}
+.fileupload ul li img{ float:left; padding-right:15px;}
+.fileupload ul li span { float:right;}

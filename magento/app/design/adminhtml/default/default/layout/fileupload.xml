@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <fileupload_adminhtml_fileupload_index>
+        <reference name="content">
+            <block type="fileupload/adminhtml_fileupload" name="fileupload" />
+        </reference>
+    </fileupload_adminhtml_fileupload_index>
+	
+	<fileupload_adminhtml_productcats_index>
+        <reference name="content">
+            <block type="fileupload/adminhtml_productcats" name="fileupload" />
+        </reference>
+    </fileupload_adminhtml_productcats_index>
+	
+	 <fileupload_adminhtml_fileupload_products>
+        <block type="core/text_list" name="root">
+            <block type="fileupload/adminhtml_fileupload_edit_tab_products" name="fileupload.edit.tab.products"/>
+            <block type="adminhtml/widget_grid_serializer" name="related_grid_serializer">
+                <reference name="related_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>fileupload.edit.tab.products</grid_block_name>
+                        <data_callback>_getSelectedProducts</data_callback>
+                        <hidden_input_name>links[related]</hidden_input_name>
+                        <reload_param_name>products_related</reload_param_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </fileupload_adminhtml_fileupload_products>
+	
+	<fileupload_adminhtml_productcats_categorygrid>
+        <block type="core/text_list" name="root">
+            <block type="fileupload/adminhtml_fileupload_edit_tab_productcats" name="news.edit.tab.category"/>
+        </block>
+    </fileupload_adminhtml_productcats_categorygrid>
+
+    <fileupload_adminhtml_fileupload_productsgrid>
+        <block type="core/text_list" name="root">
+            <block type="fileupload/adminhtml_fileupload_edit_tab_products" name="fileupload.edit.tab.products"/>
+        </block>
+    </fileupload_adminhtml_fileupload_productsgrid>
+	
+	<fileupload_catalog_product_attachments>
+        <block type="core/text_list" name="root">
+            <block type="fileupload/catalog_product_edit_tab_attachments" name="catalog.product.edit.tab.attachments"/>
+            <block type="adminhtml/widget_grid_serializer" name="attachments_grid_serializer">
+                <reference name="attachments_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>catalog.product.edit.tab.attachments</grid_block_name>
+                        <data_callback>_getSelectedAttachments</data_callback>
+                        <hidden_input_name>links[related_attachments]</hidden_input_name>
+                        <reload_param_name>products_related_attachments</reload_param_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </fileupload_catalog_product_attachments>
+	
+	<fileupload_catalog_product_attachmentsgrid>
+        <block type="core/text_list" name="root">
+            <block type="fileupload/catalog_product_edit_tab_attachments" name="catalog.product.edit.tab.attachments"/>
+        </block>
+    </fileupload_catalog_product_attachmentsgrid>
+	
+</layout>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <catalog_product_view>
+        <reference name="product.info">
+            <block type="catalog/product_view" template="subscriptioninfo/form/subscriptioninfo.phtml" name="subscriptioninfo_data"></block>
+            
+<!--             <block type="subscriptioninfo/form_subscriptioninfo" template="subscriptioninfo/form/subscriptioninfo.phtml" name="subscriptioninfo_data"></block> -->
+        </reference>
+    </catalog_product_view>
+    
+<!--
+    <checkout_cart_index>
+        <reference name="before_body_end">
+            <block type="ami_subscriptioninfo/event_checkout_cart_index" name="ami_subscriptioninfo_event_checkout_cart_index" template="ami/subscriptioninfo/event/checkout/cart/index.phtml" />
+        </reference>
+    </checkout_cart_index>
+-->
+    
+  
+</layout>

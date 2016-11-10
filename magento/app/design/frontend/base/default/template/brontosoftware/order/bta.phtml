@@ -1,0 +1,9 @@
+<?php
+
+$helper = Mage::getModel('brontosoftware_order/settings');
+$store = Mage::app()->getStore();
+?>
+<script src="//p.bm23.com/bta.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var bta = new __bta('<?php echo $helper->getTidHash('store', $store) ?>');
+</script>

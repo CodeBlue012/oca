@@ -1,0 +1,75 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Top menu for store
+ *
+ * @see Mage_Page_Block_Html_Topmenu
+ */
+?>
+<?php #$_menu = $this->getHtml('level-top') ?>
+<?php #if($_menu): ?>
+
+<ul class="nav nav-tabs hidden-xs ">
+  <?php if (Mage::app()->getStore()->getCode() == 'default'){ ?>
+  <li role="presentation" class="custom-tab-back link dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-responsive pull-left" src="/skin/frontend/oca2016d/oca2016dtheme/images/resp-flag-usa.png" alt="flag">&nbsp;<span class="caret"></span> </a>
+    <ul class="dropdown-menu">
+      <li class="custom-tab-back link"> <a href="http://canada.onecallmedicalalert.com/" onClick="_gaq.push(["_trackEvent", "Header", "Click", "canadaflag"]);"><img class="img-responsive pull-left" src="/skin/frontend/oca2016d/oca2016dtheme/images/resp-flag-can.png" alt="flag"> <span style="padding-left:10px; font-size:14px;">Canada</span></a></li>
+      <li class="custom-tab-back link"> <a href="http://canada.onecallmedicalalert.com/fr" onClick="_gaq.push(["_trackEvent", "Header", "Click", "canadaflag"]);"><img class="img-responsive pull-left" src="/skin/frontend/oca2016d/oca2016dtheme/images/resp-flag-can.png" alt="flag"> <span style="padding-left:10px; font-size:14px;">Canada CF</span></a></li>
+    </ul>
+  </li>
+  <li class="custom-tab-back link divider" id="tabid_10"> <a id="wordid_10" href="/faq/" onClick="_gaq.push(['_trackEvent', 'Header', 'Click', 'FAQ']);">FAQ</a> </li>
+  <li class="custom-tab-back link" id="tabid_124"><a id="wordid_120" href="/contact-us/" onClick="_gaq.push(['_trackEvent', 'Header', 'Click', 'contact us']);">Contact Us</a></li>
+  <?php } ?>
+  <?php if (Mage::app()->getStore()->getCode() == 'canadaen'){ ?>
+  <li role="presentation" class="custom-tab-back link dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-responsive pull-left" src="/skin/frontend/oca2016d/oca2016dtheme/images/resp-flag-can.png" alt="flag">&nbsp;<span class="caret"></span> </a>
+    <ul class="dropdown-menu">
+      <li class="custom-tab-back link"> <a href="http://canada.onecallmedicalalert.com/fr" onClick="_gaq.push(["_trackEvent", "Header", "Click", "canadaflag"]);"><img class="img-responsive pull-left" src="/skin/frontend/oca2016d/oca2016dtheme/images/resp-flag-can.png" alt="flag"> <span style="padding-left:10px; font-size:14px;">Canada CF</span></a></li>
+      <li class="custom-tab-back link"> <a href="http://onecallmedicalalert.com/" onClick="_gaq.push(["_trackEvent", "Header", "Click", "canadaflag"]);"><img class="img-responsive pull-left" src="/skin/frontend/oca2016d/oca2016dtheme/images/resp-flag-usa.png" alt="flag"> <span style="padding-left:10px; font-size:14px;">USA</span></a></li>
+    </ul>
+  </li>
+  <li class="custom-tab-back link divider" id="tabid_10"> <a id="wordid_10" href="/faq/" onClick="_gaq.push(['_trackEvent', 'Header', 'Click', 'FAQ']);">FAQ</a> </li>
+  <li class="custom-tab-back link" id="tabid_124"><a id="wordid_120" href="/contact-us/" onClick="_gaq.push(['_trackEvent', 'Header', 'Click', 'contact us']);">Contact Us</a></li>
+  <?php } ?>
+  <?php if (Mage::app()->getStore()->getCode() == 'canadafr'){ ?>
+  <li role="presentation" class="custom-tab-back link dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-responsive pull-left" src="/skin/frontend/oca2016d/oca2016dtheme/images/resp-flag-can.png" alt="flag">&nbsp;<span class="caret"></span> </a>
+    <ul class="dropdown-menu">
+      <li class="custom-tab-back link"> <a href="http://canada.onecallmedicalalert.com/" onClick="_gaq.push(["_trackEvent", "Header", "Click", "canadaflag"]);"><img class="img-responsive pull-left" src="/skin/frontend/oca2016d/oca2016dtheme/images/resp-flag-can.png" alt="flag"> <span style="padding-left:10px; font-size:14px;">Canada</span></a></li>
+      <li class="custom-tab-back link"> <a href="http://onecallmedicalalert.com/" onClick="_gaq.push(["_trackEvent", "Header", "Click", "canadaflag"]);"><img class="img-responsive pull-left" src="/skin/frontend/oca2016d/oca2016dtheme/images/resp-flag-usa.png" alt="flag"> <span style="padding-left:10px; font-size:14px;">USA</span></a></li>
+    </ul>
+  </li>
+  <?php } ?>
+</ul>
+<?php /* ?>
+    <nav id="nav">
+        <ol class="nav-primary">
+            <?php echo $_menu ?>
+			<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('post_menu_links')->toHtml(); ?>
+        </ol>
+    </nav>
+    <?php */ ?>
+<?php #endif ?>

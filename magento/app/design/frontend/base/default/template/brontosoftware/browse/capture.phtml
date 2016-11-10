@@ -1,0 +1,5 @@
+<?php if ($this->isEnabled()): ?>
+<script type="text/javascript">
+new Ajax.Request('<?php echo $this->getBrowseUrl(); ?>');
+</script>
+<?php endif; ?>

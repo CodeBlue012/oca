@@ -1,0 +1,16 @@
+<?php
+/**
+ * Brontosoftware_Integration_Block_Redemption
+ */
+if ($this->isEnabled()) : ?>
+<script type="text/javascript" src="https://cdn.bronto.com/coupon/js/bcm.js"></script>
+<script type="text/javascript">
+__bcm.redeemCoupon("<?php echo $this->getSiteId(); ?>", {
+  email: "<?php echo $this->getOrder()->getCustomerEmail(); ?>",
+  coupon: "<?php echo $this->getOrder()->getCouponCode(); ?>",
+  orderId: "<?php echo $this->getOrder()->getIncrementId(); ?>",
+  orderSubtotal: "<?php echo $this->getOrder()->getSubtotal(); ?>",
+  orderDiscount: "<?php echo $this->getOrder()->getDiscountAmount(); ?>"
+});
+</script>
+<?php endif; ?>

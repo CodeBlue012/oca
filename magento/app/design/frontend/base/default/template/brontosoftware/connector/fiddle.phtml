@@ -1,0 +1,11 @@
+<?php
+$currentStore = Mage::app()->getStore();
+?>
+<script type="text/javascript">
+Event.observe(window, 'load', function() {
+  new Ajax.Request('<?php echo $currentStore->getUrl('brontosoftware/site/fiddle', array('_secure' => $currentStore->isCurrentlySecure())); ?>', {
+    method: 'post',
+    parameters: { currentUrl: location.href }
+  });
+});
+</script>

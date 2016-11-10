@@ -1,0 +1,42 @@
+<?php 
+$_product = $this->getProduct(); 
+$pid = $this->getProduct()->getId();
+$jspath =  Mage::getBaseUrl('js');
+$collection = $this->getProductRelatedAttachments(); 
+?>
+<?php if ( count($collection) != 0 ) : ?>
+<div class="fileupload">
+    <h2><?php echo $this->__(Mage::helper('fileupload')->getProductPageAttachmentHeading()) ?></h2> 
+    <ul>
+		<?php foreach ($collection as $item): ?>
+        	 <li>
+			 	<?php
+					//check download limit
+					if($item['limit_downloads']!="" && $item['limit_downloads']!=0){
+						if($item['downloads']<=$item['limit_downloads']){
+							echo $item['file_icon'] . '  ' .  '<a href="javascript:;" onclick="alert(\'You can not download because this attachment excceds the number of download\');"><b>'. $item['title']. '</b></a>  Size: ('.$item['file_size'].')';
+						}else{
+							echo $item['file_icon'] . '  ' .  '<a href="'.Mage::getUrl('fileupload').'index/download?id='.$item['fileupload_id'].'"><b>'. $item['title']. '</b></a> ('.$item['file_size'].')';
+						}
+					}else{
+						echo $item['file_icon'] . '  ' .  '<a href="'.Mage::getUrl('fileupload').'index/download?id='.$item['fileupload_id'].'"><b>'. $item['title']. '</b></a> ('.$item['file_size'].')';
+					}?>
+					<span>
+					<?php if(Mage::getStoreConfig('fileupload/general/show_counter'))
+					{ ?>
+                		Downloads: (<?php echo $item['downloads']; ?>)
+                	<?php } ?>
+                </span>
+				<?php
+                	if(Mage::getStoreConfig('fileupload/fileupload/showcontent')) {
+				?>
+                	<br /><?php echo $item['content']; ?><br />
+                <?php 
+					} 
+				?>
+             </li>
+            
+        <?php endforeach; ?>
+    </ul>
+</div>
+<?php endif; ?>

@@ -1,0 +1,34 @@
+<?php
+
+$helper = Mage::getSingleton('brontosoftware_cart/settings');
+$currentStore = Mage::app()->getStore();
+if ($helper->isCartRecoveryEnabled('store', $currentStore)): ?>
+<script type="text/javascript">
+
+Event.observe(window, 'load', function() {
+  $$('<?php echo $helper->getCartRecoverySelectors() ?>').each(function(item) {
+    item.observe('change', function(event) {
+      captureEmail(item.value);
+    });
+  });
+});
+
+if (document.addEventListener) {
+  document.addEventListener('bronto:popup-created', function(e) {
+    $$('.popup-dialog input[id*=inputs-email]').each(function(item) {
+      item.observe('change', function(event) {
+        captureEmail(item.value);
+      });
+    });
+  }, false);
+}
+
+function captureEmail(emailAddress) {
+  <?php $captureUrl = Mage::getUrl('brontosoftware/cart/capture', array('_secure' => $currentStore->isCurrentlySecure())); ?>
+  new Ajax.Request('<?php echo $captureUrl; ?>', {
+    method: 'post',
+    parameters: { emailAddress: emailAddress }
+  });
+}
+</script>
+<?php endif; ?>

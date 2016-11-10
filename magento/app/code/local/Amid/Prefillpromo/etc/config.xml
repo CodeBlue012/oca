@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Amid_Prefillpromo>
+      <version>1.0.0.0</version>
+    </Amid_Prefillpromo>
+  </modules>
+ 
+  <global>           
+    <models>
+    	<amid_prefillpromo>
+        	<class>Amid_Prefillpromo_Model</class>
+        </amid_prefillpromo>
+    </models> 
+    <events>
+            <controller_front_init_before>
+                <observers>
+                    <amid_prefillpromo>
+                        <class>amid_prefillpromo/observer</class>
+                        <method>captureReferral</method>
+                        <type>singleton</type>
+                    </amid_prefillpromo >
+                </observers>
+            </controller_front_init_before>
+
+
+			<checkout_cart_product_add_after>
+                <observers>
+                    <amid_populatepromo>
+                        <class>amid_prefillpromo/observer</class>
+                        <method>populatePromo</method>
+                        <type>singleton</type>
+                    </amid_populatepromo >
+                </observers>
+            </checkout_cart_product_add_after>
+
+
+        </events>
+  </global>
+ </config>

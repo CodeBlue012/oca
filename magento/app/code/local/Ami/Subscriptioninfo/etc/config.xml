@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Ami_Subscriptioninfo>
+      <version>1.0.0.0</version>
+    </Ami_Subscriptioninfo>
+  </modules>
+ 
+  <global>
+    
+     
+    <helpers>
+      <Subscriptioninfo>
+        <class>Ami_Subscriptioninfo_Helper</class>
+      </Subscriptioninfo>
+    </helpers>
+ 
+    <blocks>
+      <subscriptioninfo>
+        <class>Ami_Subscriptioninfo_Block</class>
+        
+
+			
+      </subscriptioninfo>
+      
+ 
+  <catalog>
+        <rewrite>
+          <product_view>Ami_Subscriptioninfo_Block_Product_View</product_view>
+        </rewrite>
+        </catalog>
+
+ 
+    </blocks>
+         
+    <models>
+            <subscriptioninfo>
+                <class>Ami_Subscriptioninfo_Model</class>
+                <resourceModel>subscriptioninfo_resource</resourceModel>
+            </subscriptioninfo>
+            <subscriptioninfo_resource>
+                <class>Ami_Subscriptioninfo_Model_Resource</class>
+                <entities>
+                    <orders>
+                        <table>subscriptioninfo_orders</table>
+                    </orders>
+                    <quotes>
+                        <table>subscriptioninfo_quotes</table>
+                    </quotes>
+                </entities>
+            </subscriptioninfo_resource>
+            
+           
+        </models>
+ 
+    <resources>
+      <subscriptioninfo_setup>
+        <setup>
+          <module>Ami_Subscriptioninfo</module>
+        </setup>
+      </subscriptioninfo_setup>
+    </resources>
+  </global>
+ 
+    
+  <frontend>
+	<layout>
+		 <updates>
+                <subscriptioninfo>
+                    <file>subscriptioninfo.xml</file>
+                </subscriptioninfo>
+            </updates>
+	</layout>
+    <routers>
+      <Subscriptioninfo>
+        <use>standard</use>
+        <args>
+          <module>Ami_Subscriptioninfo</module>
+          <frontName>Subscriptioninfo</frontName>
+        </args>
+      </Subscriptioninfo>
+    </routers>
+    <events>
+	    
+<!-- new product -->
+
+ <checkout_cart_add_product_complete>
+                <observers>
+                    <ami_subscriptioninfo_log_cart_add>
+                        <class>subscriptioninfo/observer</class>
+                        <method>logCartAdd</method>
+                    </ami_subscriptioninfo_log_cart_add>
+                </observers>
+            </checkout_cart_add_product_complete>
+            
+            
+  <!-- updated product -->          
+             <checkout_cart_update_item_complete>
+                <observers>
+                    <ami_subscriptioninfo_log_cart_add>
+                        <class>subscriptioninfo/observer</class>
+                        <method>logCartAdd</method>
+                    </ami_subscriptioninfo_log_cart_add>
+                </observers>
+            </checkout_cart_update_item_complete>
+
+            
+            
+            
+<!-- observer not needed because we are taking care of final storage with payment method -->
+<!--
+
+			<sales_order_place_after>
+        <observers>
+            <ami_subscriptioninfo_testinghere>
+            <class>subscriptioninfo/observersavesubscriber</class>
+            <method>testinghere</method>
+            </ami_subscriptioninfo_testinghere>
+        </observers>
+        </sales_order_place_after>
+-->
+        
+        	    
+
+        </events>
+    
+  </frontend>
+</config>

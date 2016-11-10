@@ -1,0 +1,193 @@
+  <!-- BEGIN LivePerson Monitor. --> 
+<script type="text/javascript"> window.lpTag=window.lpTag||{};if(typeof window.lpTag._tagCount==='undefined'){window.lpTag={site:'26564234'||'',section:lpTag.section||'',autoStart:lpTag.autoStart===false?false:true,ovr:lpTag.ovr||{},_v:'1.5.1',_tagCount:1,protocol:location.protocol,events:{bind:function(app,ev,fn){lpTag.defer(function(){lpTag.events.bind(app,ev,fn);},0);},trigger:function(app,ev,json){lpTag.defer(function(){lpTag.events.trigger(app,ev,json);},1);}},defer:function(fn,fnType){if(fnType==0){this._defB=this._defB||[];this._defB.push(fn);}else if(fnType==1){this._defT=this._defT||[];this._defT.push(fn);}else{this._defL=this._defL||[];this._defL.push(fn);}},load:function(src,chr,id){var t=this;setTimeout(function(){t._load(src,chr,id);},0);},_load:function(src,chr,id){var url=src;if(!src){url=this.protocol+'//'+((this.ovr&&this.ovr.domain)?this.ovr.domain:'lptag.liveperson.net')+'/tag/tag.js?site='+this.site;}var s=document.createElement('script');s.setAttribute('charset',chr?chr:'UTF-8');if(id){s.setAttribute('id',id);}s.setAttribute('src',url);document.getElementsByTagName('head').item(0).appendChild(s);},init:function(){this._timing=this._timing||{};this._timing.start=(new Date()).getTime();var that=this;if(window.attachEvent){window.attachEvent('onload',function(){that._domReady('domReady');});}else{window.addEventListener('DOMContentLoaded',function(){that._domReady('contReady');},false);window.addEventListener('load',function(){that._domReady('domReady');},false);}if(typeof(window._lptStop)=='undefined'){this.load();}},start:function(){this.autoStart=true;},_domReady:function(n){if(!this.isDom){this.isDom=true;this.events.trigger('LPT','DOM_READY',{t:n});}this._timing[n]=(new Date()).getTime();},vars:lpTag.vars||[],dbs:lpTag.dbs||[],ctn:lpTag.ctn||[],sdes:lpTag.sdes||[],ev:lpTag.ev||[]};lpTag.init();}else{window.lpTag._tagCount+=1;} </script> 
+<!-- END LivePerson Monitor. -->  
+
+
+<?php echo $this->getChildHtml('topContainer'); ?>
+
+
+
+ <div class="container">
+   <header id="header" class="page-headerx">
+    <div class="page-header-container">
+
+ 
+ 
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	  <div class="container">
+	  
+	  
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="visible-xs navbar-brand" href="tel:18009941846"><span class="glyphicon glyphicon-earphone"></span> 1-800-994-1846</a>
+      
+      
+					
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        
+          
+          
+          	  	
+
+<li class="right-divider top-nav-type hidden-xs"><a href="/"><img class="img-responsive pull-left" src="/skin/frontend/oca2015c/oca2015ctheme/images/resp-flag-usa.png" alt="flag">&nbsp;</a></li>
+          
+          <li class="right-divider top-nav-type hidden-xs">
+          <a href="http://canada.onecallmedicalalert.com/" onClick="_gaq.push(['_trackEvent', 'Header', 'Click', 'canadaflag']);"><img class="img-responsive pull-left" src="/skin/frontend/oca2015c/oca2015ctheme/images/resp-flag-can.png" alt="flag">&nbsp;</a></li>
+	  	 
+	  	          
+	  	 
+	  	 <li class="right-divider top-nav-type visible-xs"><a href="/" onClick="_gaq.push(['_trackEvent', 'Header', 'Click', 'home']);">Home</a></li>
+
+	  		  	 	  		  <li class="right-divider top-nav-type"><a href="/compare-plans/" onClick="_gaq.push(['_trackEvent', 'Header', 'Click', 'compare systems']);">Compare Systems</a></li>
+	  		  	 	  		  
+	  		  	 	  		   <li class="right-divider top-nav-type"><a href="/how-it-works-system/" onClick="_gaq.push(['_trackEvent', 'Header', 'Click', 'how it works']);">How it Works</a></li>
+	  		  	 	  		   
+	  		  	 	  		    		  	 
+	  		  	 
+	  		  	 <li class="right-divider top-nav-type"><a href="/why-one-call-alert/" onClick="_gaq.push(['_trackEvent', 'Header', 'Click', 'why us']);">Why Us</a></li>
+	  		  	  <li class="right-divider top-nav-type"><a href="/faq/" onClick="_gaq.push(['_trackEvent', 'Header', 'Click', 'FAQ']);">FAQ</a></li>
+	  		  	 <li class="right-divider top-nav-type"><a href="/contact-us/" onClick="_gaq.push(['_trackEvent', 'Header', 'Click', 'contact us']);">Contact Us</a></li>
+	  		  	 
+	  		  	
+	  		  	
+	  		  	<?php /* ?>
+	  		  	
+<li class="dropdown right-divider top-nav-type">
+          <a href="#" onClick="_gaq.push(['_trackEvent', 'Header', 'Click', 'FAQ']);" class="dropdown-toggle" data-toggle="dropdown">FAQ <b class="caret"></b></a>
+            
+      
+      	      	          <ul class="dropdown-menu">
+
+      	 
+          <li><a href="/faqs/">General Questions</a></li>
+          <li><a href="/faqs-system/">In-Home Systems</a></li>
+          <li><a href="/faqs-rescube/">ResCube Mobile</a></li>
+          
+       
+            
+                </ul>
+
+	  	
+	  	 </li>
+
+<?php */ ?>
+
+<!--
+
+<li class="right-divider top-nav-type">
+ <a href="/how-to-order/" onclick="_gaq.push(['_trackEvent', 'Header', 'Click', 'request infor']);">Request Info</a>
+ </li>
+-->
+
+	  	 	  		  			  	 	  		  		  	 
+	  	 	  		  		  	 
+	  	 	       </ul>
+    
+    
+     <ul class="nav navbar-nav navbar-right hidden-xs">
+        <li class="top-nav-type"><a href="tel:8009941846">Call<span class="hidden-sm"> Today!</span></a></li>
+<!--         <li class="arrow"><span class="glyphicon glyphicon-play"></span></li> -->
+<li class="arrow-right orange-back"></li>
+        <li class="top-nav-type orange-back"><a href="tel:8009941846"><span class="glyphicon glyphicon-earphone"></span> 1-800-994-1846</a></li>
+      </ul>
+
+
+    
+           </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+  
+	  </div>
+</nav>
+ 
+							
+		<div class="row add-padding-top-sm">
+					<div class="col-xs-24 col-sm-6"><a href="/" onclick="_gaq.push(['_trackEvent', 'Header', 'Click', 'logo']);"><img class="img-responsive" src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>"></a></div>
+					
+					
+					
+					<div class="hidden-xs col-sm-7 col-md-9 col-lg-10"><p class="tagline lighten">Independent living<br>with 24/7 medical<br>alert monitoring</p></div>
+					
+					
+					
+					<div class="hidden-xs col-sm-3">
+						<img class="img-responsive" src="/skin/frontend/oca2015c/oca2015ctheme/images/consumer-digest-seal.gif">
+					</div>
+					
+					<div class="hidden-xs col-sm-8 col-md-6 col-lg-5">
+					
+					
+<!-- 								<p class="text-right">Call Us Toll Free<br /><span class="dynamic-phone-number">800.994.1846</span></p> -->
+
+											
+						
+					</div>
+							</div>
+							
+						
+					
+			
+
+ <?php echo $this->getChildHtml('topMenu') ?> 
+            
+
+
+ 
+
+       <div class="skip-links">
+           <!--
+ <a href="#header-nav" class="skip-link skip-nav">
+                <span class="icon"></span>
+                <span class="label"><?php echo $this->__('Menu'); ?></span>
+            </a>
+-->
+
+             <div class="account-cart-wrapper">
+                <a href="<?php echo $this->helper('customer')->getAccountUrl(); ?>" data-target-element="#header-account" class="skip-link skip-account">
+                    <span class="icon"></span>
+                    <span class="labelx small"><?php echo $this->__('Account'); ?></span>
+                </a>
+
+                <!-- Cart -->
+
+                <div class="header-minicart">
+                    <?php echo $this->getChildHtml('minicart_head'); ?>
+                </div>
+                
+                <div id="header-account" class="skip-content">
+            <?php echo $this->getChildHtml('topLinks') ?>
+        </div>
+        
+        
+            </div>
+            
+
+
+        </div>
+       
+        
+       
+ 
+ 
+
+	    
+		  
+	    
+
+ 
+
+</div> <!-- end page-header-container -->
+       </header>
+		</div> <!-- end container for header -->
+		

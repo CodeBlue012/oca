@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+
+<config>
+  <modules>
+    <Ami_Customextra>
+      <version>1.0.0.0</version>
+    </Ami_Customextra>
+  </modules>
+ 
+ 
+ 
+      
+  <adminhtml>
+	<layout>
+		 <updates>
+                <customextra>
+                    <file>customextra.xml</file>
+                </customextra>
+            </updates>
+	</layout>
+	
+	        
+  </adminhtml>
+  
+   <global>
+    <blocks>
+      <customextra>
+        <class>Ami_Customextra_Block</class>
+        
+
+			
+      </customextra>
+     
+     
+     
+<!--
+      <adminhtml>
+                <rewrite>
+                    <sales_order_view_info>Ami_Customextra_Block_Adminhtml_Sales_Order_View_Info_Block</sales_order_view_info>
+                </rewrite>
+                
+       
+
+            </adminhtml>
+-->
+ 
+  
+    </blocks>    
+  </global>
+</config>

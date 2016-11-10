@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * 
+ * Anthony
+ * trying to add more info to order page including coupon code
+ */
+-->
+
+<layout version="1.0">
+    <!-- Adding the block in sales/order/view page -->
+    <adminhtml_sales_order_view>
+        <!-- You can change the reference to whatever you like. Look ate layout/sales.xml for more options -->
+        <!-- This should be same in Model/Observer.php::getSalesOrderViewInfo() -->
+        <reference name="order_info">
+           
+		<action method="setTemplate">
+			<template>customextra/sales/order/info.phtml</template>
+		</action>
+
+ 		<block 	type="adminhtml/sales_order_view_info" 
+	 			name="order_info2" 
+		 		template="sales/order/view/info.phtml">		
+		</block>
+		
+            <block type="customextra/adminhtml_order" name="custom.order" template='customextra/order.phtml'/>
+            
+		
+
+        </reference>
+    </adminhtml_sales_order_view>
+</layout>
+
+<!-- Ami_Customextra_Block_Adminhtml_Order -->

@@ -1,0 +1,24 @@
+<?php if ($this->isCheckboxVisible()) : ?>
+<li id="list-subscribe-<?php echo $this->getCheckoutType(); ?>" class="control" <?php echo $this->isDynamic() ? 'style="display:none;"' : '';?>>
+  <input class="checkbox" id="<?php echo $this->getCheckoutType(); ?>:subscribe_to_newsletter" type="checkbox" name="subscribe_to_newsletter" <?php echo $this->isCheckedByDefault() ? 'CHECKED' : '' ?>>
+  <label for="<?php echo $this->getCheckoutType(); ?>:subscribe_to_newsletter"><?php echo $this->getCheckboxLabel(); ?></label>
+</li>
+<?php echo $this->getChildHtml('loader'); ?>
+<script type="text/javascript">
+(function(){
+  var submitSubscription = function($input) {
+    new Ajax.Request('<?php echo $this->getSubscriberUrl(); ?>', {
+      method: 'post',
+      parameters: { subscribed: $input.checked ? '1' : '0' }
+    });
+  };
+  var $input = $('<?php echo $this->getCheckoutType(); ?>:subscribe_to_newsletter');
+  if ($input) {
+    $input.observe('change', function() {
+      submitSubscription($input);
+    });
+    submitSubscription($input);
+  }
+})();
+</script>
+<?php endif; ?>

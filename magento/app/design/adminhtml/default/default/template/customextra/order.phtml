@@ -1,0 +1,20 @@
+<?php $_order = $this->getOrder() ?>
+<div class="entry-edit box-left">
+    <div class="entry-edit-head">
+        <h4 class="icon-head">Coupon or Brochure Code</h4>
+    </div>
+    <fieldset>
+        <div id="customextra_custom_block">           
+			<?php 
+				if ($_order->getCouponCode()) {
+					echo $_order->getCouponCode(); 
+					}
+				else {	
+					echo "none";
+					}
+					
+					 ?>
+        </div>
+    </fieldset>
+</div>
+<div class="clear"></div>

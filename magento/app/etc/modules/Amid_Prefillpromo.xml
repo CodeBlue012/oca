@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Amid_Prefillpromo>
+        	<active>true</active>
+			<codePool>local</codePool>
+        </Amid_Prefillpromo>
+    </modules>
+</config>

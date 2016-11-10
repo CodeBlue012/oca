@@ -1,0 +1,5 @@
+# OneCallMedicalAlert.com (DEV1) Robots Instructions
+# Created: 5/31/16 // Updated: 5/31/16
+
+User-agent: * 
+Disallow: /

@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * PERFICIENT INDIA PVT LTD.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://shop.perficient.com/license-community.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * This package designed for Magento COMMUNITY edition
+ * =================================================================
+ * Perficient does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * Perficient does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * PHP version 5.x
+ *
+ * @category  Perficient
+ * @package   Perficient_GoogleTagManager
+ * @author    Perficient <mukesh.soni@perficient.com>
+ * @copyright 2016 PERFICIENT INDIA PVT LTD
+ * @license   OSL http://shop.perficient.com/license-community.txt
+ * @version   GIT:0.0.2.1
+ * @link      http://shop.perficient.com/extensions/google-tag-manager-by-perficient
+ */
+-->
+<config>
+    <modules>
+        <Perficient_GoogleTagManager>
+            <version>1.0.0</version>
+        </Perficient_GoogleTagManager>
+    </modules>
+    <global>
+        <blocks>
+            <perficient_googletagmanager>
+                <class>Perficient_GoogleTagManager_Block</class>
+            </perficient_googletagmanager>
+        </blocks>
+        <helpers>
+            <perficient_googletagmanager>
+                <class>Perficient_GoogleTagManager_Helper</class>
+            </perficient_googletagmanager>
+        </helpers>
+        <models>
+            <perficient_googletagmanager>
+                <class>Perficient_GoogleTagManager_Model</class>
+                <resourceModel>perficient_googletagmanager_mysql4</resourceModel>
+            </perficient_googletagmanager>
+            <perficient_googletagmanager_mysql4>
+                <class>Perficient_GoogleTagManager_Model_Mysql4</class>
+                <entities>
+                    <sales>
+                        <table>perficient_sales_order_analytics</table>
+                    </sales>
+                </entities>  
+            </perficient_googletagmanager_mysql4>
+        </models>
+        <resources>
+            <perficient_googletagmanager_setup>
+                <setup>
+                    <module>Perficient_GoogleTagManager</module>
+                    <class>Perficient_GoogleTagManager_Model_Resource_Setup</class>
+                </setup>
+            </perficient_googletagmanager_setup>
+        </resources>
+    </global>
+    <frontend>
+        <events>
+            <checkout_onepage_controller_success_action>
+                <observers>
+                    <perficient_googletagmanager_order_success>
+                        <class>perficient_googletagmanager/observer</class>
+                        <method>setOrderData</method>
+                    </perficient_googletagmanager_order_success>
+                </observers>
+            </checkout_onepage_controller_success_action>
+            <checkout_multishipping_controller_success_action>
+                <observers>
+                    <perficient_googletagmanager_order_success>
+                        <class>perficient_googletagmanager/observer</class>
+                        <method>setOrderData</method>
+                    </perficient_googletagmanager_order_success>
+                </observers>
+            </checkout_multishipping_controller_success_action>
+            <checkout_submit_all_after>
+                <observers>
+                    <perficient_googletagmanager_checkout_observer>
+                        <type>singleton</type>
+                        <class>Perficient_GoogleTagManager_Model_Observer</class>
+                        <method>collectData</method>
+                    </perficient_googletagmanager_checkout_observer>
+                </observers>
+            </checkout_submit_all_after>
+        </events>
+        <layout>
+            <updates>
+                <perficient_googletagmanager>
+                    <file>perficient_googletagmanager.xml</file>
+                </perficient_googletagmanager>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Perficient_GoogleTagManager>
+                    <files>
+                        <default>Perficient_GoogleTagManager.csv</default>
+                    </files>
+                </Perficient_GoogleTagManager>
+            </modules>
+        </translate>
+    </frontend>
+    <adminhtml>
+        <layout>
+            <updates>
+                <perficient_googletagmanager>
+                    <file>perficient_googletagmanager.xml</file>
+                </perficient_googletagmanager>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Perficient_GoogleTagManager>
+                    <files>
+                        <default>Perficient_GoogleTagManager.csv</default>
+                    </files>
+                </Perficient_GoogleTagManager>
+            </modules>
+        </translate>
+    </adminhtml>
+    <default>
+        <perficient_googletagmanager>
+            <general>
+                <is_enabled>0</is_enabled>
+                <datalayer_name>dataLayer</datalayer_name>
+                <enable_orderanalytics>1</enable_orderanalytics>
+                <additional_cookies></additional_cookies>
+            </general>
+        </perficient_googletagmanager>
+    </default>
+</config>

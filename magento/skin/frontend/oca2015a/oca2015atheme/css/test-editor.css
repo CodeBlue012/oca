@@ -1,0 +1,693 @@
+/*
+ * Editor
+ *
+ * This support file is used to style the WYSIWYG editor in the CMS
+ */
+/*
+ * Typography
+ */
+/* ==========================================================================
+   Imports
+   ========================================================================== */
+/* ==========================================================================
+   Scaffolding - pull in base font styling etc. for SS
+   ========================================================================== */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.428571429;
+  color: #666666;
+  background-color: #ffffff;
+}
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+a {
+  color: #666666;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: #404040;
+  text-decoration: underline;
+}
+a:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+figure {
+  margin: 0;
+}
+img {
+  vertical-align: middle;
+}
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.img-rounded {
+  border-radius: 6px;
+}
+.img-thumbnail {
+  padding: 4px;
+  line-height: 1.428571429;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+.img-circle {
+  border-radius: 50%;
+}
+hr {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border: 0;
+  border-top: 1px solid #eeeeee;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+/* ==========================================================================
+   Encapsulate Bootstrap type.less styles in .typography wrapper for SS
+   ========================================================================== */
+.typography h1,
+.typography h2,
+.typography h3,
+.typography h4,
+.typography h5,
+.typography h6,
+.typography .h1,
+.typography .h2,
+.typography .h3,
+.typography .h4,
+.typography .h5,
+.typography .h6 {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 600;
+  line-height: 1.1;
+  color: #003366;
+}
+.typography h1 small,
+.typography h2 small,
+.typography h3 small,
+.typography h4 small,
+.typography h5 small,
+.typography h6 small,
+.typography .h1 small,
+.typography .h2 small,
+.typography .h3 small,
+.typography .h4 small,
+.typography .h5 small,
+.typography .h6 small,
+.typography h1 .small,
+.typography h2 .small,
+.typography h3 .small,
+.typography h4 .small,
+.typography h5 .small,
+.typography h6 .small,
+.typography .h1 .small,
+.typography .h2 .small,
+.typography .h3 .small,
+.typography .h4 .small,
+.typography .h5 .small,
+.typography .h6 .small {
+  font-weight: normal;
+  line-height: 1;
+  color: #bbbbbb;
+}
+.typography h1,
+.typography .h1,
+.typography h2,
+.typography .h2,
+.typography h3,
+.typography .h3 {
+  margin-top: 25px;
+  margin-bottom: 12.5px;
+}
+.typography h1 small,
+.typography .h1 small,
+.typography h2 small,
+.typography .h2 small,
+.typography h3 small,
+.typography .h3 small,
+.typography h1 .small,
+.typography .h1 .small,
+.typography h2 .small,
+.typography .h2 .small,
+.typography h3 .small,
+.typography .h3 .small {
+  font-size: 65%;
+}
+.typography h4,
+.typography .h4,
+.typography h5,
+.typography .h5,
+.typography h6,
+.typography .h6 {
+  margin-top: 12.5px;
+  margin-bottom: 12.5px;
+}
+.typography h4 small,
+.typography .h4 small,
+.typography h5 small,
+.typography .h5 small,
+.typography h6 small,
+.typography .h6 small,
+.typography h4 .small,
+.typography .h4 .small,
+.typography h5 .small,
+.typography .h5 .small,
+.typography h6 .small,
+.typography .h6 .small {
+  font-size: 75%;
+}
+.typography h1,
+.typography .h1 {
+  font-size: 46px;
+}
+.typography h2,
+.typography .h2 {
+  font-size: 36px;
+}
+.typography h3,
+.typography .h3 {
+  font-size: 31px;
+}
+.typography h4,
+.typography .h4 {
+  font-size: 27px;
+}
+.typography h5,
+.typography .h5 {
+  font-size: 18px;
+}
+.typography h6,
+.typography .h6 {
+  font-size: 16px;
+}
+.typography p {
+  margin: 0 0 12.5px;
+}
+.typography .lead {
+  margin-bottom: 25px;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 1.4;
+}
+@media (min-width: 768px) {
+  .typography .lead {
+    font-size: 27px;
+  }
+}
+.typography small,
+.typography .small {
+  font-size: 85%;
+}
+.typography cite {
+  font-style: normal;
+}
+.typography .text-left {
+  text-align: left;
+}
+.typography .text-right {
+  text-align: right;
+}
+.typography .text-center {
+  text-align: center;
+}
+.typography .text-justify {
+  text-align: justify;
+}
+.typography .text-muted {
+  color: #bbbbbb;
+}
+.typography .text-primary {
+  color: #428bca;
+}
+a.typography .text-primary:hover {
+  color: #3071a9;
+}
+.typography .text-success {
+  color: #3c763d;
+}
+a.typography .text-success:hover {
+  color: #2b542c;
+}
+.typography .text-info {
+  color: #31708f;
+}
+a.typography .text-info:hover {
+  color: #245269;
+}
+.typography .text-warning {
+  color: #8a6d3b;
+}
+a.typography .text-warning:hover {
+  color: #66512c;
+}
+.typography .text-danger {
+  color: #a94442;
+}
+a.typography .text-danger:hover {
+  color: #843534;
+}
+.typography .bg-primary {
+  color: #fff;
+  background-color: #428bca;
+}
+a.typography .bg-primary:hover {
+  background-color: #3071a9;
+}
+.typography .bg-success {
+  background-color: #dff0d8;
+}
+a.typography .bg-success:hover {
+  background-color: #c1e2b3;
+}
+.typography .bg-info {
+  background-color: #d9edf7;
+}
+a.typography .bg-info:hover {
+  background-color: #afd9ee;
+}
+.typography .bg-warning {
+  background-color: #fcf8e3;
+}
+a.typography .bg-warning:hover {
+  background-color: #f7ecb5;
+}
+.typography .bg-danger {
+  background-color: #f2dede;
+}
+a.typography .bg-danger:hover {
+  background-color: #e4b9b9;
+}
+.typography .page-header {
+  padding-bottom: 11.5px;
+  margin: 50px 0 25px;
+  border-bottom: 1px solid #eeeeee;
+}
+.typography ul,
+.typography ol {
+  margin-top: 0;
+  margin-bottom: 12.5px;
+}
+.typography ul ul,
+.typography ol ul,
+.typography ul ol,
+.typography ol ol {
+  margin-bottom: 0;
+}
+.typography .list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+.typography .list-inline {
+  padding-left: 0;
+  list-style: none;
+  margin-left: -5px;
+}
+.typography .list-inline > li {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.typography dl {
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+.typography dt,
+.typography dd {
+  line-height: 1.428571429;
+}
+.typography dt {
+  font-weight: bold;
+}
+.typography dd {
+  margin-left: 0;
+}
+@media (min-width: 768px) {
+  .typography .dl-horizontal dt {
+    float: left;
+    width: 160px;
+    clear: left;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .typography .dl-horizontal dd {
+    margin-left: 180px;
+  }
+}
+.typography abbr[title],
+.typography abbr[data-original-title] {
+  cursor: help;
+  border-bottom: 1px dotted #bbbbbb;
+}
+.typography .initialism {
+  font-size: 90%;
+  text-transform: uppercase;
+}
+.typography blockquote {
+  padding: 12.5px 25px;
+  margin: 0 0 25px;
+  font-size: 22.5px;
+  border-left: 5px solid #eeeeee;
+}
+.typography blockquote p:last-child,
+.typography blockquote ul:last-child,
+.typography blockquote ol:last-child {
+  margin-bottom: 0;
+}
+.typography blockquote footer,
+.typography blockquote small,
+.typography blockquote .small {
+  display: block;
+  font-size: 80%;
+  line-height: 1.428571429;
+  color: #bbbbbb;
+}
+.typography blockquote footer:before,
+.typography blockquote small:before,
+.typography blockquote .small:before {
+  content: '\2014 \00A0';
+}
+.typography .blockquote-reverse,
+.typography blockquote.pull-right {
+  padding-right: 15px;
+  padding-left: 0;
+  border-right: 5px solid #eeeeee;
+  border-left: 0;
+  text-align: right;
+}
+.typography .blockquote-reverse footer:before,
+.typography blockquote.pull-right footer:before,
+.typography .blockquote-reverse small:before,
+.typography blockquote.pull-right small:before,
+.typography .blockquote-reverse .small:before,
+.typography blockquote.pull-right .small:before {
+  content: '';
+}
+.typography .blockquote-reverse footer:after,
+.typography blockquote.pull-right footer:after,
+.typography .blockquote-reverse small:after,
+.typography blockquote.pull-right small:after,
+.typography .blockquote-reverse .small:after,
+.typography blockquote.pull-right .small:after {
+  content: '\00A0 \2014';
+}
+.typography blockquote:before,
+.typography blockquote:after {
+  content: "";
+}
+.typography address {
+  margin-bottom: 25px;
+  font-style: normal;
+  line-height: 1.428571429;
+}
+.typography h1,
+.typography h2,
+.typography h3,
+.typography h4,
+.typography h5,
+.typography h6 {
+  margin: 12.5px 0;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 600;
+  line-height: 25px;
+  text-rendering: optimizelegibility;
+}
+.typography h1 small,
+.typography h2 small,
+.typography h3 small,
+.typography h4 small,
+.typography h5 small,
+.typography h6 small {
+  font-weight: normal;
+  line-height: 1;
+  color: #bbbbbb;
+}
+.typography h1 {
+  font-size: 31.5px;
+}
+.typography h2 {
+  font-size: 24.3px;
+}
+.typography h3 {
+  font-size: 24.3px;
+}
+.typography h4 {
+  font-size: 20.7px;
+}
+.typography h5 {
+  font-size: 18px;
+}
+.typography h6 {
+  font-size: 15.299999999999999px;
+}
+.typography h1 small {
+  font-size: 24.3px;
+}
+.typography h2 small {
+  font-size: 22.5px;
+}
+.typography h3 small {
+  font-size: 18px;
+}
+.typography h4 small {
+  font-size: 18px;
+}
+.typography h1 {
+  color: #63b535;
+  font-size: 30px;
+  font-weight: lighter;
+  line-height: 34px;
+}
+.typography h1.secondary-green {
+  color: #63b535;
+  font-size: 30px;
+  font-weight: lighter;
+  line-height: 34px;
+}
+.typography h1.secondary-blue {
+  color: #003366;
+  font-size: 30px;
+  font-weight: lighter;
+  line-height: 34px;
+}
+.typography h1.secondary-orange {
+  color: #ff7800;
+  font-size: 30px;
+  font-weight: 200;
+  line-height: 34px;
+}
+.typography h2.secondary-green {
+  color: #63b535;
+  font-size: 26px;
+  font-weight: normal;
+  line-height: 30px;
+}
+.typography h2.secondary {
+  color: #666666;
+  font-size: 26px;
+  font-weight: normal;
+  line-height: 30px;
+}
+.typography h3.secondary-green {
+  color: #63b535;
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 26px;
+}
+.typography h3.secondary-blue {
+  color: #003366;
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 26px;
+}
+.typography h3.secondary-orange {
+  color: #ff7800;
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 26px;
+}
+.typography h4.secondary-green {
+  color: #63b535;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 24px;
+}
+.typography h4.secondary-blue {
+  color: #003366;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 24px;
+}
+.typography h4.secondary-orange {
+  color: #ff7800;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 24px;
+}
+.typography h1.rep {
+  font-size: 31.5px;
+}
+.typography h2.rep {
+  font-size: 24.3px;
+}
+.typography h3.rep {
+  font-size: 24.3px;
+}
+.typography h4.rep {
+  font-size: 20.7px;
+}
+.typography h5.rep {
+  font-size: 18px;
+}
+.typography h6.rep {
+  font-size: 15.299999999999999px;
+}
+.typography h1 {
+  color: #63b535;
+  font-weight: 100;
+  line-height: 37.5px;
+}
+.typography h2 {
+  color: #003366;
+}
+.typography h3 {
+  color: #63b535;
+}
+.typography h4 {
+  color: #003366;
+}
+.typography h5 {
+  color: #63b535;
+}
+.typography h2,
+.typography h3 {
+  line-height: 31.25px;
+}
+.typography .secondary-orange {
+  color: #ff7800;
+}
+.typography a.secondary-orange:link {
+  color: #ff7800;
+}
+.typography a.secondary-orange:visited {
+  color: #ff7800;
+}
+.typography a.secondary-orange:hover {
+  color: #63b535;
+}
+.typography p {
+  color: #333333;
+  font-size: 18px;
+  font-weight: 100;
+  line-height: 24px;
+}
+.typography p.italic-reverse {
+  color: #ffffff;
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 100;
+  line-height: 24px;
+}
+.typography p.secondary-med {
+  color: #000000;
+  font-size: 20px;
+  font-weight: 100;
+  line-height: 40px;
+}
+.typography p.secondary-small {
+  color: #666666;
+  font-size: 15px;
+  font-weight: 100;
+  line-height: 16px;
+}
+.typography p.lead {
+  margin-bottom: 25px;
+  color: #666666;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 26px;
+}
+.typography ul.bullet {
+  font-size: 18px;
+  font-weight: 200;
+}
+.typography .nav-tabs a#wordid_117 {
+  background-color: #ff7800;
+}
+.typography .nav-tabs a:hover#wordid_117 {
+  background-color: #eeeeee;
+}
+.typography #wordid_117 {
+  color: #ffffff;
+}
+.typography a:hover#wordid_117 {
+  color: #000000;
+}
+.typography dl {
+  margin-bottom: 25px;
+}
+.typography dt {
+  color: #003366;
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 26px;
+}
+.typography dd {
+  line-height: 25px;
+  color: #666666;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 22px;
+}
+.typography dt {
+  font-size: 20.7px;
+  font-weight: bold;
+  color: #003366;
+}
+.typography dd {
+  margin-left: 31.25px;
+}
+body.mceContentBody {
+  padding: 20px;
+  font-size: 14px;
+}

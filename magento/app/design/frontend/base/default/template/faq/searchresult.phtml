@@ -1,0 +1,138 @@
+<?php //$this->getSearchfaq();
+		$_keyword= $_GET['keyword'];
+    	$faq_id= 0;
+    	$exceptstrangesign = preg_replace('#[^0-9a-z]+#i', ' ', $_keyword);
+    	$inputarrayword= array();
+    	
+    	$inputarrayword=explode(' ',$exceptstrangesign);
+		echo "<h3 id= 'mh_result'>".Mage::Helper('faq')->__('Result for search by keyword: ')."<em>".$_keyword."</em> </h3>";
+		//search from faqitem table	
+		?>
+		<!--
+			<div style="margin-bottom:20px;">	
+				<p><?php echo Mage::Helper('faq')->__('If you do not find the information you need and you have any questions please')?>
+					<a href="<?php echo $this->getUrl('faq/submit/index')?>"><?php echo Mage::Helper('faq')->__('submit a question')?></a>
+				</p>
+			</div>
+		-->
+		<?php
+		if($_keyword!='')
+		{
+			$faqs= Mage::getModel('faq/faq')->getCollection()->addStoreFilter(Mage::app()->getStore()->getId())->addEnableFilter('1');
+			$where ="";
+			$where1 ="";
+			for($i=0;$i<count($inputarrayword);$i++)
+			{
+				$where .= "faqname like '%".$inputarrayword[$i]."%' OR ";
+			}
+			$where = substr($where,0,strlen($where)-4); 
+			$faqs->getSelect()->where($where)->order('faq_order ASC');			
+			// Search in faq with faqname
+			if(count($faqs)!=0)
+			{
+				foreach ($faqs as $faq)
+				{
+					$faq_id= $faq['faq_id'];
+					$faqitems= Mage::getModel('faq/faqitem')->getCollection()->addStoreFilter(Mage::app()->getStore()->getId())->addEnableFilter('1');
+					$faqitems->getSelect()->where('main_table.faq_id = ?', $faq_id)->order('faq_order ASC');
+					if(count($faqitems)!=0)
+					{
+						echo '
+							<div class="mh_faq">
+							<div class = "mh_discription">
+								<h4 class= "mh_faq_name">'.strtoupper($faq['faqname']).'</h2>
+								<div class="mh_faq_description">'.$faq['description'].'</div>
+							</div>';						
+						foreach ($faqitems as $key=>$faqitem)
+						{
+							if($faqitem['answer']!='')
+							{
+								echo '
+								<div class="cd-faq-items1">
+									
+									<ul class="mh_question" id="mh_question'.$key.'" class="cd-faq-group">
+										
+										<li style="background: ghostwhite; margin-bottom: 6px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); -webkit-transition: box-shadow 0.2s; -moz-transition: box-shadow 0.2s; transition: box-shadow 0.2s;">
+											<a class="cd-faq-trigger" href="#0">'.$faqitem['question'].'</a>
+											<div class="cd-faq-content">
+												<p>'.$faqitem['answer'].'</p>
+											</div> 
+										</li>
+									</ul>
+									
+								</div>';
+							}
+						}
+						echo '</div>';
+					}
+					
+				}
+			}else	{
+				for($i=0;$i<count($inputarrayword);$i++)
+				{
+					$where1 .= "answer like '%".$inputarrayword[$i]."%' OR ";
+					$where1 .= "question like '%".$inputarrayword[$i]."%' OR ";
+				}
+				$where1 = substr($where1,0,strlen($where1)-4); 
+				$faqitems=Mage::getModel('faq/faqitem')->getCollection()->addStoreFilter(Mage::app()->getStore()->getId())->addEnableFilter('1');
+				$faqitems->getSelect()->where($where1)->order('faq_order ASC');
+				
+				if(count($faqitems)!=0)
+				{			
+					
+					foreach ($faqitems as $faqitem)
+					{
+						$faq1s= Mage::getModel('faq/faq')->getCollection()->addStoreFilter(Mage::app()->getStore()->getId())->addEnableFilter('1');
+						$faq1s->getSelect()->where('main_table.faq_id=?', $faqitem['faq_id'])->order('faq_order ASC');
+						
+					?>
+							
+								<div class="cd-faq-items1">
+									<?php
+									foreach ($faq1s as $faq1) {
+									?>
+									<ul id="faq-<?php echo $faq1["faq_id"]; ?>" class="cd-faq-group1">
+										
+											<?php
+											if($faqitem['answer']!='')
+											{?>
+												<li style="background: ghostwhite; margin-bottom: 6px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); -webkit-transition: box-shadow 0.2s; -moz-transition: box-shadow 0.2s; transition: box-shadow 0.2s;">
+													<a class="cd-faq-trigger" href="#0"><?php echo $faqitem['question'];?></a>
+													<div class="cd-faq-content">
+														<p><?php echo $faqitem['answer']; ?></p>
+													</div> <!-- cd-faq-content -->
+												</li>
+										<?php } ?>
+										
+										
+									</ul> <!-- cd-faq-group -->
+									<?php } ?>
+									
+								</div> <!-- cd-faq-items -->
+
+					<?php
+					}
+				}else{/*if(count($faqitems)!=0)*/
+					echo Mage::Helper('faq')->__('There is no result for your keyword');
+				}
+			
+			}
+		}/*if($_keyword!='')*/
+		else		{
+			
+			$link= $this->getUrl('faq/submit/index');
+			$response = Mage::app()->getResponse()
+				->setHeader("Location", $link)
+	  			->sendHeaders();
+		}
+?>
+
+<style>
+@media (max-width: 768px){
+	.cd-faq-trigger {
+		line-height: 36px !important;
+		padding: 5px 10px  !important;
+	}
+	.cd-faq-content p{line-height:25px !important; padding:0 10px 10px 10px !important;}
+}
+</style>

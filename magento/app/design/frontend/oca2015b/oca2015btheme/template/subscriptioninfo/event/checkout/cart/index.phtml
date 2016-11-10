@@ -1,0 +1,7 @@
+<?php $_product = Mage::getModel('core/session')->getProductToShoppingCart() ?>
+<?php if ($_product && $_product->getId()): ?>
+    <script type="text/javascript">
+        window.alert("hello world");
+    </script>
+    <?php Mage::getModel('core/session')->unsProductToShoppingCart(); ?>
+<?php endif; ?>

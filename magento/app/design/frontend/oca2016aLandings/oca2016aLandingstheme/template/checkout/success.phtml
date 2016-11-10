@@ -1,0 +1,138 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+ 
+$lastOrderId = Mage::getSingleton('checkout/session')->getLastOrderId();
+$order = Mage::getSingleton('sales/order'); 
+$order->load($lastOrderId);
+$_totalData =$order->getData(); 
+$_grandtotal = $order->getBaseGrandTotal();
+$_sub = $_totalData['subtotal'];
+$orderIncrementId = $order->getIncrementId();
+
+$_grandtotal = number_format($_grandtotal,2);
+$_grandtotal = preg_replace("/\,/i","",$_grandtotal);
+
+
+?>
+<div class="page-title">
+    <h1><?php echo $this->__('Your order has been received.') ?></h1>
+</div>
+<?php echo $this->getMessagesBlock()->toHtml() ?>
+<h2 class="sub-title"><?php echo $this->__('Thank you for your purchase!') ?></h2>
+
+<?php if ($this->getOrderId()):?>
+<?php if ($this->getCanViewOrder()) :?>
+    <p><?php echo $this->__('Your order # is: %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getViewOrderUrl()), $this->escapeHtml($this->getOrderId()))) ?></p>
+<?php  else :?>
+    <p><?php echo $this->__('Your order # is: %s.', $this->escapeHtml($this->getOrderId())) ?></p>
+<?php endif;?>
+    <p><?php echo $this->__('You will receive an order confirmation email with details of your order and a link to track its progress.') ?></p>
+    
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('order_confirmation_block')->toHtml();?>
+<?php if ($this->getCanViewOrder() && $this->getCanPrintOrder()) :?>
+    <p>
+        <?php echo $this->__('Click <a href="%s" onclick="this.target=\'_blank\'">here to print</a> a copy of your order confirmation.', $this->getPrintUrl()) ?>
+        <?php echo $this->getChildHtml() ?>
+    </p>
+<?php endif;?>
+<?php endif;?>
+
+<?php if ($this->getAgreementRefId()): ?>
+    <p><?php echo $this->__('Your billing agreement # is: %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getAgreementUrl()), $this->escapeHtml($this->getAgreementRefId())))?></p>
+<?php endif;?>
+
+<?php if ($profiles = $this->getRecurringProfiles()):?>
+<p><?php echo $this->__('Your recurring payment profiles:'); ?></p>
+<ul class="disc">
+<?php foreach($profiles as $profile):?>
+<?php $profileIdHtml = ($this->getCanViewProfiles() ? sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getProfileUrl($profile)), $this->escapeHtml($this->getObjectData($profile, 'reference_id'))) : $this->escapeHtml($this->getObjectData($profile, 'reference_id')));?>
+    <li><?php echo $this->__('Payment profile # %s: "%s".', $profileIdHtml, $this->escapeHtml($this->getObjectData($profile, 'schedule_description')))?></li>
+<?php endforeach;?>
+</ul>
+<?php endif;?>
+
+<div class="buttons-set">
+    <button type="button" class="button" title="<?php echo $this->__('Continue Shopping') ?>" onclick="window.location='<?php echo $this->getUrl() ?>'"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+</div>
+
+<!-- whatcounts start -->
+<img src="https://mktgemail.identifyyourself.com/ConversionTracking.aspx?AccountID=6302&IsConversion=1&Pamt=<?php print $_grandtotal; ?>&OrderID=<?php print $orderIncrementId; ?>&TrkA=OCA&TrkB=USA" width="1" height="1" border="0" />
+<!-- whatcounts end -->
+
+<!-- google confirmation -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1030312-14']);
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['_addTrans',
+    '<?php print $orderIncrementId; ?>',           // transaction ID - required
+    'One Call Alert',  // affiliation or store name
+    '<?php print $_grandtotal; ?>',          // total - required
+ 
+   '0.00',           // tax
+    '0.00',              // shipping
+    '',       // city
+    '',     // state or province
+    'USA'             // country
+  ]);
+
+<?php 
+	/* 
+   // add item might be called for every item in the shopping cart
+   // where your ecommerce engine loops through each item in the cart and
+   // prints out _addItem for each
+  _gaq.push(['_addItem',
+    '<?php print $accountcode; ?>',           // transaction ID - required
+    '<?php print $usesystem; ?><?php print $useplan; ?><?php print $usetwoway; ?>',           // SKU/code - required
+    '<?php print $usesystemtype; ?> <?php print $usetwowaytype; ?> <?php print $useplantype; ?>',        // product name
+    '<?php print $typependantid_1_show[$typependantid_1]; ?>',   // category or variation
+    '<?php print $totalchargeformatted; ?>',          // unit price - required
+    '1'               // quantity - required
+  ]);
+*/
+?>
+
+  _gaq.push(['_trackTrans']); //submits transaction to the Analytics servers
+  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- google confirmation end -->
+
+<!-- optimizely start -->
+<?php
+	$priceincents = 100 * $_grandtotal;
+?>
+<script>
+    window.optimizely = window.optimizely || [];
+    window.optimizely.push(['trackEvent', 'purchase_complete', {'revenue': <?php print $priceincents; ?> }]);
+</script>
+<!-- optimizely end -->

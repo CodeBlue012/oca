@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+ *
+ * Created by:  Milan Simek
+ * Company:     Plugin Company
+ *
+ * LICENSE: http://plugin.company/docs/magento-extensions/magento-extension-license-agreement
+ *
+ * YOU WILL ALSO FIND A PDF COPY OF THE LICENSE IN THE DOWNLOADED ZIP FILE
+ *
+ * FOR QUESTIONS AND SUPPORT
+ * PLEASE DON'T HESITATE TO CONTACT US AT:
+ *
+ * SUPPORT@PLUGIN.COMPANY
+ *
+-->
+<layout>
+    <adminhtml_promo_quote_edit>
+        <reference name="promo_quote_edit_tab_coupons">
+            <block type="core/template" template="plugincompany/couponimport/Importform.phtml" name="promo_quote_edit_tab_coupons_importform" before="promo_quote_edit_tab_coupons_grid"/>
+        </reference>
+    </adminhtml_promo_quote_edit>
+    <couponimport_index_couponsgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="plugincompany_couponimport/adminhtml_promo_quote_coupons_grid" name="promo_quote_edit_tab_coupons_grid"/>
+        </block>
+    </couponimport_index_couponsgrid>
+</layout>

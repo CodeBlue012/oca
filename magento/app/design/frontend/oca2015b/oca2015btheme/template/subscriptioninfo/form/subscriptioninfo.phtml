@@ -1,0 +1,107 @@
+<?php
+
+	//$filldata = $this->pullSubscriberinfo();	
+	//$cpBlock = $this->getLayout()->getBlockSingleton('ami_subscriptioninfo/product_view');
+	
+	$subscriber_arr['subscriber_firstname'] = "";
+	$subscriber_arr['subscriber_lastname'] = "";
+	$subscriber_arr['subscriber_city'] = "";
+	$subscriber_arr['subscriber_state'] = "";
+	$subscriber_arr['subscriber_zip'] = "";
+	$subscriber_arr['subscriber_address'] = "";
+	$subscriber_arr['subscriber_address2'] = "";
+	$subscriber_arr['subscriber_email'] = "";
+	$subscriber_arr['subscriber_phone'] = "";
+		
+	if ($this->pullSubscriberinfo()) {
+		
+		$subscriber_arr['subscriber_firstname'] = $this->pullSubscriberinfo()->getData('subscriber_firstname');
+		$subscriber_arr['subscriber_lastname'] = $this->pullSubscriberinfo()->getData('subscriber_lastname');
+		$subscriber_arr['subscriber_address'] = $this->pullSubscriberinfo()->getData('subscriber_address');
+		$subscriber_arr['subscriber_address2'] = $this->pullSubscriberinfo()->getData('subscriber_address2');
+		$subscriber_arr['subscriber_city'] = $this->pullSubscriberinfo()->getData('subscriber_city');
+		$subscriber_arr['subscriber_state'] = $this->pullSubscriberinfo()->getData('subscriber_state');
+		$subscriber_arr['subscriber_zip'] = $this->pullSubscriberinfo()->getData('subscriber_zip');
+		$subscriber_arr['subscriber_email'] = $this->pullSubscriberinfo()->getData('subscriber_email');
+		$subscriber_arr['subscriber_phone'] = $this->pullSubscriberinfo()->getData('subscriber_phone');
+		
+	}
+	
+?>
+
+<div class="product-options" id="product-options-wrapper2">
+	<dl>
+<dt><label class="required"><em>*</em><?php echo $this->__('Subscriber First Name') ?></label>
+    </dt>
+<dd>
+    <div class="input-box">            
+            <input type="text" title="<?php echo $this->__('Subscriber First Name') ?>" class="input-text required-entry  product-custom-option"  id="id_subscriber_firstname" name="subscriber[subscriber_firstname]" value="<?php  echo $subscriber_arr['subscriber_firstname'];   ?>" />
+            </div>
+</dd>
+<dt><label class="required"><em>*</em><?php echo $this->__('Subscriber Last Name') ?></label>
+    </dt>
+<dd>
+    <div class="input-box">            
+            <input type="text" title="<?php echo $this->__('Subscriber Last Name') ?>" class="input-text required-entry  product-custom-option"  id="id_subscriber_lastname" name="subscriber[subscriber_lastname]" value="<?php  echo $subscriber_arr['subscriber_lastname'];   ?>" />
+            </div>
+</dd>
+
+  <dt><label class="required"><em>*</em>Address</label>
+    </dt>
+<dd>
+    <div class="input-box">
+            <input type="text" id="id_subscriber_address" class="input-text required-entry  product-custom-option" name="subscriber[subscriber_address]" value="<?php  echo $subscriber_arr['subscriber_address'];   ?>" />
+            </div>
+</dd>
+            <dt><label>Apt / Ste</label>
+    </dt>
+<dd>
+    <div class="input-box">
+            <input type="text" id="id_subscriber_address2" class="input-text  product-custom-option" name="subscriber[subscriber_address2]" value="<?php  echo $subscriber_arr['subscriber_address2'];   ?>" />
+            </div>
+</dd>
+            <dt><label class="required"><em>*</em>City</label>
+    </dt>
+<dd>
+    <div class="input-box">
+            <input type="text" id="id_subscriber_city" class="input-text required-entry  product-custom-option" name="subscriber[subscriber_city]" value="<?php  echo $subscriber_arr['subscriber_city'];   ?>" />
+            </div>
+</dd>
+            
+<dt><label class="required"><em>*</em>State</label></dt>
+<dd>
+    <div class="input-box">
+        <select name="subscriber[subscriber_state]" id="id_subscriber_state" class=" required-entry product-custom-option" title=""  onchange="opConfig.reloadPrice()">
+	        
+	        <?php if ($subscriber_arr['subscriber_state']) { ?>
+	        <option value="<?php echo $subscriber_arr['subscriber_state']; ?>" ><?php echo $subscriber_arr['subscriber_state']; ?></option>
+	        <?php } else { ?>
+	        <option value="" >-- Please Select --</option>
+	        <?php } ?><option value="AL">AL </option><option value="TX">TX </option></select>                            
+	            </div>
+</dd>
+            <dt><label class="required"><em>*</em>Zip</label>
+    </dt>
+<dd>
+    <div class="input-box">
+            <input type="text" id="id_subscriber_zip" class="input-text required-entry  product-custom-option" name="subscriber[subscriber_zip]" value="<?php  echo $subscriber_arr['subscriber_zip'];   ?>" />
+            </div>
+</dd>
+            <dt><label>Email</label>
+    </dt>
+<dd>
+    <div class="input-box">
+            <input type="text" id="id_subscriber_email" class="input-text  product-custom-option" name="subscriber[subscriber_email]" value="<?php  echo $subscriber_arr['subscriber_email'];   ?>" />
+            </div>
+</dd>
+            <dt><label class="required"><em>*</em>Phone</label>
+    </dt>
+<dd class="last">
+    <div class="input-box">
+            <input type="text" id="id_subscriber_phone" class="input-text required-entry  product-custom-option" name="subscriber[subscriber_phone]" value="<?php  echo $subscriber_arr['subscriber_phone'];   ?>" />
+            </div>
+</dd>
+	</dl>
+	<p class="required">* Required Fields</p>
+
+</div>

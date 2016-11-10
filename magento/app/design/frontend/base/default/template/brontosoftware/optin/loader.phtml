@@ -1,0 +1,8 @@
+<script type="text/javascript">
+  $$('#co-<?php echo $this->getCheckoutType(); ?>-form ul.form-list').each(function(list) {
+    $$('#list-subscribe-<?php echo $this->getCheckoutType(); ?>').each(function(li) {
+      list.appendChild(li);
+      li.style.display = "";
+    });
+  });
+</script>

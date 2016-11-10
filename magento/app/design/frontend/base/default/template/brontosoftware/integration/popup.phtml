@@ -1,0 +1,19 @@
+<?php
+
+$helper = Mage::getSingleton('brontosoftware_integration/settings');
+$currentStore = Mage::app()->getStore();
+if ($helper->isPopupEnabled('store', $currentStore)) : ?>
+<script bronto-popup-id="<?php echo implode(' ' , $helper->getPopupDomains('store', $currentStore)); ?>" type="text/javascript" src="https://cdn.bronto.com/popup/delivery.js"></script>
+
+<script type="text/javascript">
+  if (document.addEventListener) {
+    <?php $popupUrl = Mage::getUrl('brontosoftware/integration/popup', array('_secure' => $currentStore->isCurrentlySecure())); ?>
+    document.addEventListener('bronto:popup-submitted', function(e) {
+      new Ajax.Request('<?php echo $popupUrl; ?>', {
+        method: 'post',
+        parameters: { emailAddress: e.detail.email }
+      });
+    }, false);
+  }
+</script>
+<?php endif; ?>

@@ -1,0 +1,62 @@
+
+<header>
+	<h1><?php echo $this->__('Submit a Question');?></h1>
+</header>
+<div class="mh_submit">
+
+<?php 
+	$faqs = array();
+	$collection = Mage::getModel('faq/faq')->getCollection()->addStoreFilter(Mage::app()->getStore()->getId())->addEnableFilter('1');
+?>
+
+	<form action="<?php echo $this->getUrl('faq/submit/save')?>" method="post">		
+		<div class="mh_field">
+			<h4><?php echo Mage::Helper('faq')->__('Select a Category')?>:</h4> 
+			<select name = "category">
+				<option >---Select FAQ Category---</option>
+		<?php 
+				foreach ($collection as $faq) 
+				{
+					echo '<option>';
+					echo $faq->getFaqname();
+					echo '</option>';
+				}
+		?>
+			</select>
+		</div>
+		
+		<div class="mh_field">
+			<h4><?php echo Mage::Helper('faq')->__('Question')?>:</h4>
+			<textarea name = "question" rows="10" cols="80"></textarea>
+		</div>
+		
+		<div class="mh_code">
+			<?php
+				$im = imagecreate(60, 20);
+				$bg = imagecolorallocate($im, 0 , 0, 0); 
+				$textcolor = imagecolorallocate($im, 255, 255, 255);
+				$random=rand(1000,9999);
+				imagestring($im, 10, 10, 2, $random , $textcolor);
+				$filenametemp="media".DS."gif".time().".gif";
+				ImageGIF($im, $filenametemp); 
+				$ImageData = file_get_contents($filenametemp); 
+				$ImageDataEnc = base64_encode($ImageData); 
+				unlink($filenametemp);		
+			?>
+			<h4><?php echo Mage::Helper('faq')->__('Security Code')?>:</h4>
+			<input type="text" maxlength="4" name ="code"></input>
+		
+			<img alt="<?php echo $random ?>" src="data:image/gif;base64,<?php echo $ImageDataEnc?>"">
+			<input type="hidden" name="codetest" id="codemd5" value="<?php echo $random?>"/>
+		</div>
+		<div class="box_bt">
+			<button class="mh_button button form-button" title="Send" type="submit" >
+				<span><span><?php echo Mage::Helper('faq')->__('Send')?></span></span>
+			</button>
+			<button class="mh_button button form-button" title="Reset" type="reset">
+				<span><span><?php echo Mage::Helper('faq')->__('Reset')?></span></span>
+			</button>
+		</div>
+	</form>
+
+</div>

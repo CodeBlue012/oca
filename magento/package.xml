@@ -1,0 +1,251 @@
+<?xml version="1.0"?>
+<package>
+  <name>perficient_googletagmanager</name>
+  <version>0.0.2.1</version>
+  <stability>stable</stability>
+  <license>OSL</license>
+  <channel>community</channel>
+  <extends/>
+  <summary>The new Google Tag Manager extension from Zeon Solutions is the perfect tool for those looking to install Google&#x2019;s free tag management solution on their Magento site, regardless of which version or edition of Magento they currently  use. With a few simple clicks and configurations, this extension creates a site-wide implementation of Google Tag Manager and a fully-functioning data layer on any and all versions of the Magento platform.&#xD;
+</summary>
+  <description>Data Layer Functionality: &#xD;
+
+Constantly Updating Currently, this extension allows users to instantly populate the data layer with transaction data so they can easily setup ecommerce tracking. &#xD;
+
+However, this extension will soon be expanded to include other data layer functions such as site-search, auto-event tracking, scroll tracking and more.&#xD;
+
+Instant Setup, The extension easy to use interface allows you to:&#xD;
+
+Enable Google Tag Manager at any time&#xD;
+
+Enable order Analytics information&#xD;
+
+List any additional cookies you&amp;rsquo;d like to track&#xD;
+
+Easily create a data layer&#xD;
+
+Enable ecommerce transactions to populate that data layer&#xD;
+
+Why Use Google Tag Manager? &#xD;
+
+Manage all of your site&amp;rsquo;s tags from one simple interface&#xD;
+
+Quickly publish new tags outside of development sprints or cycles&#xD;
+
+Decrease page load time by only firing certain tags on certain pages or events&#xD;
+
+Improve your Analytics data by setting custom variables and tracking site events&#xD;
+</description>
+  <notes>First Release 0.0.1&#xD;
+</notes>
+  <authors>
+    <author>
+      <name>Perficient Support</name>
+      <user>Perficient</user>
+      <email>mukesh.soni@perficient.com</email>
+    </author>
+  </authors>
+  <date>2016-01-29</date>
+  <time>16:30:49</time>
+  <contents>
+    <target name="mageetc">
+      <dir name="modules">
+        <file name="Perficient_GoogleTagManager.xml" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+      </dir>
+    </target>
+    <target name="magelocale">
+      <dir name="en_US">
+        <file name="Perficient_GoogleTagManager.csv" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+      </dir>
+    </target>
+    <target name="magedesign">
+      <dir name="adminhtml">
+        <dir name="default">
+          <dir name="default">
+            <dir name="template">
+              <dir name="perficient">
+                <dir name="googletagmanager">
+                  <file name="orderanalytics.phtml" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+                </dir>
+              </dir>
+            </dir>
+            <dir name="layout">
+              <file name="perficient_googletagmanager.xml" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+            </dir>
+          </dir>
+        </dir>
+      </dir>
+      <dir name="frontend">
+        <dir name="base">
+          <dir name="default">
+            <dir name="template">
+              <dir name="perficient">
+                <dir name="googletagmanager">
+                  <file name="googletagmanager.phtml" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+                </dir>
+              </dir>
+            </dir>
+            <dir name="layout">
+              <file name="perficient_googletagmanager.xml" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+            </dir>
+          </dir>
+        </dir>
+      </dir>
+    </target>
+    <target name="magecommunity">
+      <dir name="Perficient">
+        <dir name="GoogleTagManager">
+          <dir name="Helper">
+            <file name="Data.php" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+          </dir>
+          <dir name="etc">
+            <file name="config.xml" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+            <file name="adminhtml.xml" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+            <file name="system.xml" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+          </dir>
+          <dir name="Model">
+            <dir name="Mysql4">
+              <file name="Orderanalytics.php" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+            </dir>
+            <dir name="Resource">
+              <file name="Orderanalytics.php" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+              <file name="Setup.php" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+            </dir>
+            <file name="Orderanalytics.php" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+            <file name="Googletagmanager.php" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+            <file name="Observer.php" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+          </dir>
+          <dir name="sql">
+            <dir name="perficient_googletagmanager_setup">
+              <file name="mysql4-install-1.0.0.php" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+            </dir>
+          </dir>
+          <dir name="Block">
+            <file name="Googletagmanager.php" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+            <dir name="Adminhtml">
+              <dir name="Sales">
+                <dir name="Order">
+                  <dir name="View">
+                    <dir name="Tab">
+                      <file name="Orderanalytics.php" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+                    </dir>
+                  </dir>
+                </dir>
+              </dir>
+            </dir>
+          </dir>
+        </dir>
+      </dir>
+    </target>
+    <target name="mage">
+      <dir name=".">
+        <file name="Google Tag Manager User Guide.docx" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+        <file name="license-community.txt" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+      </dir>
+    </target>
+    <target name="mageetc">
+      <dir name="modules">
+        <file name="Perficient_GoogleTagManager.xml" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+      </dir>
+    </target>
+    <target name="magelocale">
+      <dir name="en_US">
+        <file name="Perficient_GoogleTagManager.csv" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+      </dir>
+    </target>
+    <target name="magedesign">
+      <dir name="adminhtml">
+        <dir name="default">
+          <dir name="default">
+            <dir name="template">
+              <dir name="perficient">
+                <dir name="googletagmanager">
+                  <file name="orderanalytics.phtml" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+                </dir>
+              </dir>
+            </dir>
+            <dir name="layout">
+              <file name="perficient_googletagmanager.xml" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+            </dir>
+          </dir>
+        </dir>
+      </dir>
+      <dir name="frontend">
+        <dir name="base">
+          <dir name="default">
+            <dir name="template">
+              <dir name="perficient">
+                <dir name="googletagmanager">
+                  <file name="googletagmanager.phtml" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+                </dir>
+              </dir>
+            </dir>
+            <dir name="layout">
+              <file name="perficient_googletagmanager.xml" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+            </dir>
+          </dir>
+        </dir>
+      </dir>
+    </target>
+    <target name="magecommunity">
+      <dir name="Perficient">
+        <dir name="GoogleTagManager">
+          <dir name="Helper">
+            <file name="Data.php" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+          </dir>
+          <dir name="etc">
+            <file name="config.xml" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+            <file name="adminhtml.xml" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+            <file name="system.xml" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+          </dir>
+          <dir name="Model">
+            <dir name="Mysql4">
+              <file name="Orderanalytics.php" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+            </dir>
+            <dir name="Resource">
+              <file name="Orderanalytics.php" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+              <file name="Setup.php" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+            </dir>
+            <file name="Orderanalytics.php" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+            <file name="Googletagmanager.php" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+            <file name="Observer.php" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+          </dir>
+          <dir name="sql">
+            <dir name="perficient_googletagmanager_setup">
+              <file name="mysql4-install-1.0.0.php" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+            </dir>
+          </dir>
+          <dir name="Block">
+            <file name="Googletagmanager.php" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+            <dir name="Adminhtml">
+              <dir name="Sales">
+                <dir name="Order">
+                  <dir name="View">
+                    <dir name="Tab">
+                      <file name="Orderanalytics.php" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+                    </dir>
+                  </dir>
+                </dir>
+              </dir>
+            </dir>
+          </dir>
+        </dir>
+      </dir>
+    </target>
+    <target name="mage">
+      <dir name=".">
+        <file name="Google Tag Manager User Guide.docx" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+        <file name="license-community.txt" hash="d41d8cd98f00b204e9800998ecf8427e"/>
+      </dir>
+    </target>
+  </contents>
+  <compatible/>
+  <dependencies>
+    <required>
+      <php>
+        <min>5.1.0</min>
+        <max>6.0.0</max>
+      </php>
+    </required>
+  </dependencies>
+</package>

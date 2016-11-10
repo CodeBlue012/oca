@@ -1,0 +1,77 @@
+<layout version="0.1.0">
+<default>
+    <reference name="head">
+        <action method="removeItem"><type>skin_js</type><name>js/slideshow.js</name></action>
+        <action method="removeItem"><type>skin_js</type><name>js/lib/jquery.cycle2.min.js</name></action>
+        <action method="removeItem"><type>skin_js</type><name>js/lib/jquery.cycle2.swipe.min.js</name></action>
+        <action method="removeItem"><type>skin_css</type><name>css/madisonisland.css</name></action>
+        <action method="removeItem"><type>skin_css</type><name>css/madisonisland-ie8.css</name></action>
+        <action method="removeItem"><type>link_rel</type><name>//fonts.googleapis.com/css?family=Raleway:300,400,500,700,600</name></action>
+		<!--<action method="addItem"><type>skin_js</type><name>js/headshrink.js</name><params/></action>-->
+		<action method="addLinkRel"><rel>stylesheet</rel><href>//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css</href></action>
+    </reference>
+	
+	<reference name="head">
+    <block type="core/text" name="headshrink">
+        <action method="setText">
+            <text><![CDATA[<script type='text/javascript'>
+
+jQuery(window).load(function(){
+jQuery(window).scroll(function() {
+  if (jQuery(document).scrollTop() > 50) {
+    jQuery('header').addClass('shrink');
+  } else {
+    jQuery('header').removeClass('shrink');
+  }
+});
+}); 
+</script>]]></text>
+        </action>
+    </block>
+</reference>
+
+<!--<reference name="head">
+    <block type="core/text" name="headshrink">
+        <action method="setText">
+            <text><![CDATA[<script type="text/javascript">
+var jq = $.noConflict();
+jq(document).ready(function(){
+    jq("button").click(function(){
+        jq("p").text("jQuery is still working!");
+    });
+});
+</script>]]></text>
+        </action>
+    </block>
+</reference>-->
+    
+    
+
+	
+	
+	
+     <reference name="footer">
+            <remove name="footer_links"/>
+            <remove name="footer_links2"/>
+        </reference>
+
+
+ <!-- this part removes breadcrumbs from product view page -->
+<catalog_product_view>
+     <remove name="breadcrumbs"/>
+</catalog_product_view>
+<!-- this part removes breadcrumbs from product list pages -->
+<catalog_category_default>
+     <remove name="breadcrumbs"/>
+</catalog_category_default>
+<catalog_category_layered>
+     <remove name="breadcrumbs"/>
+</catalog_category_layered>
+
+        
+        
+   
+    
+    
+</default>
+</layout>

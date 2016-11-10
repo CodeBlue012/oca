@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+    	<Magecomp_Fileupload>
+      		<version>1.0.0</version>
+    	</Magecomp_Fileupload>
+  	</modules>
+  	<frontend>
+    	<routers>
+      		<fileupload>
+        		<use>standard</use>
+        		<args>
+          			<module>Magecomp_Fileupload</module>
+          			<frontName>fileupload</frontName>
+        		</args>
+      		</fileupload>
+    	</routers>
+		<layout>
+      		<updates>
+        		<fileupload>
+          			<file>fileupload.xml</file>
+        		</fileupload>
+      		</updates>
+    	</layout>
+  	</frontend>
+  	<admin>
+		<routers>
+      		<fileupload>
+        		<use>admin</use>
+        		<args>
+          			<module>Magecomp_Fileupload</module>
+          			<frontName>fileupload</frontName>
+        		</args>
+      		</fileupload>
+    	</routers>
+  	</admin>
+  	<adminhtml>
+		<menu>
+			<fileupload module="fileupload">
+				<title>File Uplaod</title>
+				<sort_order>71</sort_order>
+				<children>
+			  		<items module="fileupload">
+						<title>Manage File Uplaods</title>
+						<sort_order>0</sort_order>
+						<action>fileupload/adminhtml_fileupload</action>
+			  		</items>
+			  		<productcats module="fileupload">
+						<title>Manage Upload Categories</title>
+						<sort_order>1</sort_order>
+						<action>fileupload/adminhtml_productcats</action>
+			  		</productcats>
+			  		<config translate="title">
+						<title>Configuration</title>
+						<sort_order>2</sort_order>
+						<action>adminhtml/system_config/edit/section/fileupload</action>
+			  		</config>
+				</children>
+		  	</fileupload>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<fileupload module="fileupload">
+							<title>File Uplaod</title>
+							<sort_order>71</sort_order>
+							<children>
+								<items module="fileupload">
+								  <title>Manage File Uplaods</title>
+								  <sort_order>0</sort_order>
+								  <action>fileuploadadmin/adminhtml_fileupload</action>
+								</items>
+								<productcats module="fileupload">
+								  <title>Manage Upload Categories</title>
+								  <sort_order>1</sort_order>
+								  <action>fileuploadadmin/adminhtml_productcats</action>
+								</productcats>
+								<config translate="title">
+								  <title>Configuration</title>
+								  <sort_order>2</sort_order>
+								  <action>adminhtml/system_config/edit/section/fileupload</action>
+								</config>
+							</children>
+						</fileupload>
+						<system>
+							<children>
+								<config>
+									<children>
+										<fileupload translate="title" module="fileupload">
+											<title>Uplaod Section</title>
+											<sort_order>140</sort_order>
+										</fileupload>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<fileupload>
+					<file>fileupload.xml</file>
+				</fileupload>
+			</updates>
+		</layout>
+		<events>
+			<catalog_product_save_after>
+				<observers>
+					<save_product_attachments_data>
+						<type>singleton</type>
+						<class>fileupload/observer_product</class>
+						<method>saveTabData</method>
+					</save_product_attachments_data>
+				</observers>
+			</catalog_product_save_after>
+		</events>
+  	</adminhtml>
+  	<global>
+    	<models>
+      		<fileupload>
+        		<class>Magecomp_Fileupload_Model</class>
+        		<resourceModel>fileupload_mysql4</resourceModel>
+      		</fileupload>
+      		<fileupload_mysql4>
+        		<class>Magecomp_Fileupload_Model_Mysql4</class>
+        		<entities>
+          			<fileupload>
+            			<table>fileupload</table>
+          			</fileupload>
+          			<fileupload_store>
+            			<table>fileupload_store</table>
+          			</fileupload_store>
+          			<fileupload_products>
+            			<table>fileupload_products</table>
+          			</fileupload_products>
+          			<fileupload_cats>
+            			<table>fileupload_cats</table>
+          			</fileupload_cats>
+          			<fileupload_category_store>
+            			<table>fileupload_category_store</table>
+          			</fileupload_category_store>
+          			<fileupload_category_link>
+            			<table>fileupload_category_link</table>
+          			</fileupload_category_link>
+        		</entities>
+      		</fileupload_mysql4>
+    	</models>
+    	<resources>
+			<fileupload_setup>
+				<setup>
+					<module>Magecomp_Fileupload</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</fileupload_setup>
+			<fileupload_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</fileupload_write>
+			<fileupload_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</fileupload_read>
+    	</resources>
+    	<blocks>
+      		<fileupload>
+        		<class>Magecomp_Fileupload_Block</class>
+      		</fileupload>
+      		<adminhtml>
+        		<rewrite>
+          			<catalog_product_edit_tabs>Magecomp_Fileupload_Block_Catalog_Product_Edit_Tabs</catalog_product_edit_tabs>
+        		</rewrite>
+      		</adminhtml>
+    	</blocks>
+    	<helpers>
+      		<fileupload>
+        		<class>Magecomp_Fileupload_Helper</class>
+      		</fileupload>
+    	</helpers>
+    	<!--<rewrite>
+      		<fileupload_adminhtml_catalog_product>
+				<from>
+          			<![CDATA[#^/adminhtml/catalog/product/#]]>
+        		</from>
+        		<to>/adminhtml/catalog/product/</to>
+      		</fileupload_adminhtml_catalog_product>
+    	</rewrite>-->
+  	</global>
+</config>

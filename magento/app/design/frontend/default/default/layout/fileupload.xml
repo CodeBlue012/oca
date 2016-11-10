@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+		<reference name="head">
+			<action method="addCss"><stylesheet>css/fileupload/fileupload.css</stylesheet></action>	
+		</reference>
+	</default>
+    <catalog_product_view>
+		<reference name="content">
+			<reference name="product.info">
+				<reference name="product.info.additional">
+					<block module="fileupload" type="fileupload/fileupload" name="product.info.fileupload" as="product_fileupload">
+					</block>
+				</reference>
+			</reference>
+		</reference>
+	</catalog_product_view>
+	
+	<cms_page translate="label">
+        <reference name="content">
+			<reference name="cms.wrapper">
+				 <block type="fileupload/cmspagesattachments" name="cms.info.attachments" as="cms_page_attachments" >
+				 </block>
+            </reference>
+        </reference>
+    </cms_page>
+	
+</layout> 
